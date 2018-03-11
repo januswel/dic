@@ -1,5 +1,5 @@
 // @flow
 
-export default (urlTemplate: string, keyword: string) => {
-  return urlTemplate.replace('${keyword}', encodeURIComponent(keyword))
+export default (urlTemplate: string, target: string) => {
+  return urlTemplate.replace('${target}', encodeURIComponent(target))
 }

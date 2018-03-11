@@ -1,7 +1,7 @@
 {
   "ALC": {
     "title": "ALC 英辞郎",
-    "url": "https://eow.alc.co.jp/search?q=${keyword}",
+    "url": "https://eow.alc.co.jp/search?q=${target}",
     "selector": "#resultsList li:has(.midashi, .midashi_je)"
   }
 }

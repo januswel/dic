@@ -4,28 +4,28 @@ import minimist from 'minimist'
 import lookup from './'
 
 type Args = {
-  keyword: string,
+  target: string,
   service?: string,
   needsToShowHelp?: boolean,
 }
 
 const generateHelp = () => {
-  return 'Usage: dic <word or sentense to lookup>'
+  return 'Usage: dic <a word or a sentense to lookup>'
 }
 
 const processArguments = () => {
   const parsed = minimist(process.argv.slice(2))
 
   const config: Config = {
-    keyword: parsed._[0],
+    target: parsed._[0],
   }
 
   if (parsed.h || parsed.help) {
     config.needsToShowHelp = true
   }
 
-  if (!config.keyword) {
-    throw new Error('specify a keyword to lookup dictionary')
+  if (!config.target) {
+    throw new Error('Specify a word or a sentense to lookup')
   }
 
   if (parsed.service) {
@@ -45,11 +45,11 @@ export default () => {
     }
 
     if (config.service) {
-      lookup(config.keyword, config.service)
+      lookup(config.target, config.service)
       return
     }
 
-    lookup(config.keyword)
+    lookup(config.target)
   } catch (e) {
     console.error(e.message)
     console.error(generateHelp())

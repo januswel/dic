@@ -4,12 +4,12 @@ import DEFAULTS from './defaults'
 
 import { resolveService, buildUrl, fetchHtml, findResults, getHead, formatPretty } from './lib'
 
-const lookup = async (keyword: string, service: string = DEFAULTS.SERVICE) => {
+const lookup = async (target: string, service: string = DEFAULTS.SERVICE) => {
   try {
     const config = resolveService(service)
     console.log(`using service: ${config.title}`)
 
-    const url = buildUrl(config.url, keyword)
+    const url = buildUrl(config.url, target)
     console.log(`fetching from ${url}`)
 
     const html = await fetchHtml(url)

@@ -7,7 +7,7 @@ Usage
 ---
 
 ```sh
-dic <keyword to lookup dictionary>
+dic <word or sentense to lookup>
 ```
 
 Future works
