@@ -4,6 +4,7 @@
   "description": "dictionary utils",
   "main": "index.js",
   "scripts": {
+    "start": "babel-node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +19,12 @@
   "bugs": {
     "url": "https://github.com/januswel/dic/issues"
   },
-  "homepage": "https://github.com/januswel/dic#readme"
+  "homepage": "https://github.com/januswel/dic#readme",
+  "dependencies": {
+    "cheerio": "1.0.0-rc.2"
+  },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-preset-es2015": "6.24.1"
+  }
 }
