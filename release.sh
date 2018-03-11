@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -x
 
 yangpao -p
 git commit -am "release v$(yangpao -c)"
