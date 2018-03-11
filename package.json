@@ -1,6 +1,6 @@
 {
   "name": "@januswel/dic",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "dictionary utils",
   "main": "./src/index.js",
   "bin": "./bin/dic",
