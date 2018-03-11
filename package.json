@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "dictionary utils",
   "main": "index.js",
+  "bin": "./bin/dic",
   "scripts": {
+    "build": "babel index.js --out-dir dist",
     "start": "babel-node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "flow"

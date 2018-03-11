@@ -34,4 +34,4 @@ const main = async (keyword: string, site: string = DEFAULT.SERVICE) => {
     console.log(result)
 }
 
-main('dictionary')
+export default main
