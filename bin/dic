@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-var bin = require('../dist/bin').default
+var cli = require('../dist/cli').default
 
-bin('dictionary')
+cli()
