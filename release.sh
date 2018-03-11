@@ -6,4 +6,4 @@ git tag v$(yangpao -c)
 git push origin master --tags
 
 # TODO: setup CI
-npm publish
+npm publish --access public
