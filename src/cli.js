@@ -8,6 +8,11 @@ type Args = {
   service?: string,
 }
 
+const showHelp = () => {
+  const help = 'Usage: dic <word or sentense to lookup>'
+  console.error(help)
+}
+
 const processArguments = () => {
   const parsed = minimist(process.argv.slice(2))
   const args: Args = {
@@ -38,5 +43,6 @@ export default () => {
     lookup(args.keyword)
   } catch (e) {
     console.error(e.message)
+    showHelp()
   }
 }
