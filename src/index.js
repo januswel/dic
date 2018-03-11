@@ -3,16 +3,17 @@
 import cheerio from 'cheerio'
 import fetch from 'node-fetch'
 
-import resolveService from './lib/resolve-service'
 import DEFAULTS from './defaults'
+
+import resolveService from './lib/resolve-service'
+import buildUrl from './lib/build-url'
 
 const main = async (keyword: string, service: string = DEFAULTS.SERVICE) => {
   try {
     const config = resolveService(service)
+    console.log(`using service: ${config.title}`)
 
-    const urlTemplate = config.url
-    const url = urlTemplate.replace('${keyword}', encodeURIComponent(keyword))
-    console.log(url)
+    const url = buildUrl(config, keyword)
 
     const response = await fetch(url)
     const html = await response.text()

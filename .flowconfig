@@ -3,6 +3,7 @@
 [include]
 
 [libs]
+type-definitions
 
 [lints]
 
