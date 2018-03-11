@@ -3,6 +3,13 @@ dic v0.0.5
 
 lookup dictionary
 
+Install
+---
+
+```sh
+npm install --global @januswel/dic
+```
+
 Usage
 ---
 
