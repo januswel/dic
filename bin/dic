@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-const main = require('../dist').default
+var bin = require('../dist/bin').default
 
-main('dictionary')
+bin('dictionary')
