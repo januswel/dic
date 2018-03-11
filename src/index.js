@@ -4,12 +4,11 @@ import cheerio from 'cheerio'
 import fetch from 'node-fetch'
 
 import resolveService from './lib/resolve-service'
-import DEFAULT_CONFIG from './default'
+import DEFAULTS from './defaults'
 
-const main = async (keyword: string, service: string = DEFAULT_CONFIG.service) => {
+const main = async (keyword: string, service: string = DEFAULTS.SERVICE) => {
   try {
     const config = resolveService(service)
-    console.log(config)
 
     const urlTemplate = config.url
     const url = urlTemplate.replace('${keyword}', encodeURIComponent(keyword))
@@ -23,7 +22,7 @@ const main = async (keyword: string, service: string = DEFAULT_CONFIG.service) =
 
     const matched = $(config.selector)
     const converted = matched.map((i, el) => $(el).text()).get()
-    const result = converted.slice(0, DEFAULT_CONFIG.numofDisplay)
+    const result = converted.slice(0, DEFAULTS.NUMOF_DISPLAY)
     console.log(result)
   } catch (e) {
     console.log(e)
