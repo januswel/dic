@@ -6,43 +6,52 @@ import lookup from './'
 type Args = {
   keyword: string,
   service?: string,
+  needsToShowHelp?: boolean,
 }
 
-const showHelp = () => {
-  const help = 'Usage: dic <word or sentense to lookup>'
-  console.error(help)
+const generateHelp = () => {
+  return 'Usage: dic <word or sentense to lookup>'
 }
 
 const processArguments = () => {
   const parsed = minimist(process.argv.slice(2))
-  const args: Args = {
+
+  const config: Config = {
     keyword: parsed._[0],
   }
 
-  if (!args.keyword) {
+  if (parsed.h || parsed.help) {
+    config.needsToShowHelp = true
+  }
+
+  if (!config.keyword) {
     throw new Error('specify a keyword to lookup dictionary')
   }
 
   if (parsed.service) {
-    args.service = parsed.service
+    config.service = parsed.service
   }
 
-  return args
+  return config
 }
 
 export default () => {
   try {
-    const args = processArguments()
-    console.log(args)
+    const config = processArguments()
 
-    if (args.service) {
-      lookup(args.keyword, args.service)
+    if (config.needsToShowHelp) {
+      console.log(needsToShowHelp)
       return
     }
 
-    lookup(args.keyword)
+    if (config.service) {
+      lookup(config.keyword, config.service)
+      return
+    }
+
+    lookup(config.keyword)
   } catch (e) {
     console.error(e.message)
-    showHelp()
+    console.error(generateHelp())
   }
 }
