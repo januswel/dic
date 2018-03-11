@@ -9,7 +9,7 @@ const lookup = async (keyword: string, service: string = DEFAULTS.SERVICE) => {
     const config = resolveService(service)
     console.log(`using service: ${config.title}`)
 
-    const url = buildUrl(config, keyword)
+    const url = buildUrl(config.url, keyword)
     console.log(`fetching from ${url}`)
 
     const html = await fetchHtml(url)

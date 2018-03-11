@@ -1,5 +1,0 @@
-declare type Config = {
-  title: string,
-  url: string,
-  selector: string,
-}

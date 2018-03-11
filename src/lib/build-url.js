@@ -1,7 +1,5 @@
 // @flow
 
-export default (config: Config, keyword: string) => {
-  const urlTemplate = config.url
-  const url = urlTemplate.replace('${keyword}', encodeURIComponent(keyword))
-  return url
+export default (urlTemplate: string, keyword: string) => {
+  return urlTemplate.replace('${keyword}', encodeURIComponent(keyword))
 }

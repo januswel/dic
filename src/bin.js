@@ -3,9 +3,14 @@
 import minimist from 'minimist'
 import lookup from './'
 
+type Args = {
+  keyword: string,
+  service?: string,
+}
+
 const processArguments = () => {
   const parsed = minimist(process.argv.slice(2))
-  const args = {
+  const args: Args = {
     keyword: parsed._[0],
   }
 
