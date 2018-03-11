@@ -1,12 +1,12 @@
 // @flow
 
-import cheerio from 'cheerio'
-
 import DEFAULTS from './defaults'
 
 import resolveService from './lib/resolve-service'
 import buildUrl from './lib/build-url'
 import fetchHtml from './lib/fetch-html'
+import findResults from './lib/find-results'
+import getHead from './lib/get-head'
 
 const main = async (keyword: string, service: string = DEFAULTS.SERVICE) => {
   try {
@@ -18,11 +18,9 @@ const main = async (keyword: string, service: string = DEFAULTS.SERVICE) => {
 
     const html = await fetchHtml(url)
 
-    const $ = cheerio.load(html)
-    const matched = $(config.selector)
-    const converted = matched.map((i, el) => $(el).text()).get()
-    const result = converted.slice(0, DEFAULTS.NUMOF_DISPLAY)
-    console.log(result)
+    const allResults = findResults(html, config.selector)
+    const results = getHead(allResults, DEFAULTS.NUMOF_DISPLAY)
+    console.log(results)
   } catch (e) {
     console.log(e)
   }
