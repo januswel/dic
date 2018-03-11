@@ -1,0 +1,22 @@
+{
+  "name": "@januswel/dic",
+  "version": "0.0.1",
+  "description": "dictionary utils",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/januswel/dic.git"
+  },
+  "keywords": [
+    "dictionary"
+  ],
+  "author": "Takagi Kensuke <janus.wel.3@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/januswel/dic/issues"
+  },
+  "homepage": "https://github.com/januswel/dic#readme"
+}
