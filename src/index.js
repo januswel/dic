@@ -2,12 +2,7 @@
 
 import DEFAULTS from './defaults'
 
-import resolveService from './lib/resolve-service'
-import buildUrl from './lib/build-url'
-import fetchHtml from './lib/fetch-html'
-import findResults from './lib/find-results'
-import getHead from './lib/get-head'
-import formatPretty from './lib/format-pretty'
+import { resolveService, buildUrl, fetchHtml, findResults, getHead, formatPretty } from './lib'
 
 const main = async (keyword: string, service: string = DEFAULTS.SERVICE) => {
   try {
