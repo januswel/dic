@@ -7,14 +7,13 @@ const SERVICES = {
   ALC: {
     TITLE: 'ALC 英辞郎',
     URL: 'https://eow.alc.co.jp/search?q=${keyword}',
-    SELECTOR: '#resultsList li:has(.midashi)'
+    SELECTOR: '#resultsList li:has(.midashi)',
   },
 }
 const DEFAULT = {
   SERVICE: 'ALC',
   NUMOF_DISPLAY: 10,
 }
-
 
 const main = async (keyword: string, site: string = DEFAULT.SERVICE) => {
   const service = SERVICES[site]
