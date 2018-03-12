@@ -1,4 +1,4 @@
-dic v0.0.5
+dic v0.0.6
 ===
 
 lookup dictionary
