@@ -2,6 +2,8 @@
   "name": "@januswel/dic",
   "version": "0.0.6",
   "description": "dictionary utils",
+  "author": "Takagi Kensuke <janus.wel.3@gmail.com>",
+  "license": "MIT",
   "main": "./src/index.js",
   "bin": "./bin/dic",
   "scripts": {
@@ -11,15 +13,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "flow"
   },
+  "keywords": [
+    "dictionary"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/januswel/dic.git"
   },
-  "keywords": [
-    "dictionary"
-  ],
-  "author": "Takagi Kensuke <janus.wel.3@gmail.com>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/januswel/dic/issues"
   },
