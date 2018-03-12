@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/januswel/dic/issues"
   },
-  "homepage": "https://github.com/januswel/dic#readme",
+  "homepage": "https://github.com/januswel/dic/cli#readme",
   "dependencies": {
     "cheerio": "1.0.0-rc.2",
     "minimist": "1.2.0",
