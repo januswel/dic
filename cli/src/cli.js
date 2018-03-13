@@ -3,7 +3,7 @@
 import minimist from 'minimist'
 import lookup from './'
 
-type Args = {
+type Config = {
   target: string,
   service?: string,
   needsToShowHelp?: boolean,
@@ -40,7 +40,7 @@ export default () => {
     const config = processArguments()
 
     if (config.needsToShowHelp) {
-      console.log(needsToShowHelp)
+      console.log(generateHelp())
       return
     }
 
