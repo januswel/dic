@@ -2,6 +2,9 @@
   "author": "Takagi Kensuke <janus.wel.3@gmail.com>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "clean": "find . -name node_modules | xargs rm -rf"
+  },
   "devDependencies": {
     "prettier": "1.11.1"
   },
