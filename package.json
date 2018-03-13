@@ -2,7 +2,12 @@
   "author": "Takagi Kensuke <janus.wel.3@gmail.com>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "clean": "find . -name node_modules | xargs rm -rf",
+    "type-check": "flow"
+  },
   "devDependencies": {
+    "flow-bin": "0.67.1",
     "prettier": "1.11.1"
   },
   "workspaces": [

@@ -1,4 +1,18 @@
 const path = require('path')
+const env = require('node-env-file')
+const webpack = require('webpack')
+
+const ENV_KEYS = ['API_KEY', 'PROJECT_ID', 'MESSAGING_SENDER_ID']
+
+const ENV_PATH = __dirname + '/.env'
+const generateEnv = keys => {
+  env(ENV_PATH)
+  const result = {}
+  keys.forEach(key => {
+    result[key] = process.env[key]
+  })
+  return JSON.stringify(result)
+}
 
 module.exports = {
   entry: {
@@ -23,4 +37,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': generateEnv(ENV_KEYS),
+    }),
+  ],
 }
