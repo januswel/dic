@@ -1,5 +1,6 @@
 // @flow
 
+// TODO: use `commander` package
 import minimist from 'minimist'
 import lookup from './'
 

@@ -5,7 +5,7 @@ const webpack = require('webpack')
 const ENV_KEYS = ['API_KEY', 'PROJECT_ID', 'MESSAGING_SENDER_ID']
 
 const ENV_PATH = __dirname + '/.env'
-const envPlugin = keys => {
+const generateEnv = keys => {
   env(ENV_PATH)
   const result = {}
   keys.forEach(key => {
@@ -39,7 +39,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': envPlugin(ENV_KEYS),
+      'process.env': generateEnv(ENV_KEYS),
     }),
   ],
 }
