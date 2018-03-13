@@ -1,7 +1,7 @@
-dic v0.0.6
+dic-cli v0.0.6
 ===
 
-lookup dictionary
+cli to lookup dictionary
 
 Install
 ---
