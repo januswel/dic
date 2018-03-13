@@ -4,9 +4,14 @@
   "private": true,
   "scripts": {
     "clean": "find . -name node_modules | xargs rm -rf",
+    "lint": "eslint server/src cli/src",
     "type-check": "flow"
   },
   "devDependencies": {
+    "babel-eslint": "8.2.2",
+    "eslint": "4.18.2",
+    "eslint-plugin-flowtype": "2.46.1",
+    "eslint-plugin-react": "7.7.0",
     "flow-bin": "0.67.1",
     "prettier": "1.11.1"
   },

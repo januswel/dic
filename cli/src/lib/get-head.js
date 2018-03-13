@@ -1,5 +1,4 @@
 // @flow
 
-export default (targets: Array<any>, n: number) => {
-  return targets.slice(0, n)
-}
+const HEAD_INDEX = 0
+export default (targets: Array<any>, n: number) => targets.slice(HEAD_INDEX, n)
