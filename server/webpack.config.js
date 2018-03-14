@@ -16,7 +16,7 @@ const generateEnv = keys => {
 
 module.exports = {
   entry: {
-    index: [path.resolve(__dirname, 'src/index.jsx')],
+    index: [path.resolve(__dirname, 'src/index.js')],
   },
   output: {
     filename: 'bundle.js',
