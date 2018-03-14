@@ -5,6 +5,7 @@
   "scripts": {
     "clean": "find . -name node_modules | xargs rm -rf",
     "lint": "eslint server/src cli/src",
+    "test": "yarn type-check && yarn lint",
     "type-check": "flow"
   },
   "devDependencies": {
