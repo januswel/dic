@@ -1,5 +1,6 @@
-import React from 'react'
+// @flow
 
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 const styles = {
@@ -8,7 +9,7 @@ const styles = {
   },
 }
 
-export default () => (
+export default props => (
   <nav>
     <Link style={styles.link} to="/">
       Home
@@ -16,5 +17,10 @@ export default () => (
     <Link style={styles.link} to="/add">
       Add definitions
     </Link>
+    {props.isAuthenticated ? (
+      <button onClick={props.logout}>Logout Here!</button>
+    ) : (
+      <button onClick={props.login}>Login Here!</button>
+    )}
   </nav>
 )
