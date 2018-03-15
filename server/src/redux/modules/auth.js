@@ -1,12 +1,16 @@
 // @flow
 
+// types
+const SUCCESS = 'authentication/success'
+const FAILURE = 'authentication/success'
+
 // actions
 export const authSuccess = () => ({
-  type: 'AUTH_SUCCESS',
+  type: SUCCESS,
 })
 
 export const authFail = () => ({
-  type: 'AUTH_FAIL',
+  type: FAILURE,
 })
 
 // reducer
@@ -16,12 +20,12 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'AUTH_SUCCESS':
+    case SUCCESS:
       return {
         ...state,
         isAuthenticated: true,
       }
-    case 'AUTH_FAIL':
+    case FAILURE:
       return {
         ...state,
         isAuthenticated: false,
