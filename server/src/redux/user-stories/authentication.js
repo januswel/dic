@@ -4,8 +4,12 @@ import { push } from 'react-router-redux'
 
 import { authenticationSuccess, authenticationFailure } from '../modules/authentication'
 
+import type { Dispatch } from 'redux'
+
 export default class AuthenticationUserStory {
-  constructor(dispatch) {
+  dispatch: Dispatch
+
+  constructor(dispatch: Dispatch) {
     this.dispatch = dispatch
   }
 

@@ -3,13 +3,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import type AuthenticationUserStory from '../redux/user-stories/authentication'
+
 const styles = {
   link: {
     padding: 8,
   },
 }
 
-export default props => (
+type Props = {
+  actions: {
+    authentication: AuthenticationUserStory,
+  },
+}
+
+export default (props: Props) => (
   <nav>
     <Link style={styles.link} to="/">
       Home
