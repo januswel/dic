@@ -4,8 +4,10 @@ import { connect } from 'react-redux'
 
 import PrivateRoute from '../private-route'
 
-const ConnectedPrivateRoute = connect(state => ({
+const mapStateToProps = state => ({
   isAuthenticated: state.authReducer.isAuthenticated,
-}))(PrivateRoute)
+})
+
+const ConnectedPrivateRoute = connect(mapStateToProps)(PrivateRoute)
 
 export default ConnectedPrivateRoute

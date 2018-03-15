@@ -6,7 +6,11 @@ import { push } from 'react-router-redux'
 import Navigation from '../components/navigation'
 import { authSuccess, authFail } from '../redux/modules/auth'
 
-const ConnectedNavigation = connect(null, dispatch => ({
+const mapStateToProps = state => ({
+  isAuthenticated: state.authReducer.isAuthenticated,
+})
+
+const mapDispatchToProps = dispatch => ({
   login: () => {
     dispatch(authSuccess())
     dispatch(push('/'))
@@ -15,6 +19,8 @@ const ConnectedNavigation = connect(null, dispatch => ({
     dispatch(authFail())
     dispatch(push('/login'))
   },
-}))(Navigation)
+})
+
+const ConnectedNavigation = connect(mapStateToProps, mapDispatchToProps)(Navigation)
 
 export default ConnectedNavigation

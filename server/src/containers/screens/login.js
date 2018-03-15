@@ -6,11 +6,13 @@ import { push } from 'react-router-redux'
 import Login from '../../components/screens/login'
 import { authSuccess } from '../../redux/modules/auth'
 
-const ConnectedLogin = connect(null, dispatch => ({
+const mapDispatchToProps = dispatch => ({
   login: () => {
     dispatch(authSuccess())
     dispatch(push('/'))
   },
-}))(Login)
+})
+
+const ConnectedLogin = connect(null, mapDispatchToProps)(Login)
 
 export default ConnectedLogin
