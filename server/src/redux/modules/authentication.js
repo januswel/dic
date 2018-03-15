@@ -2,14 +2,14 @@
 
 // types
 const SUCCESS = 'authentication/success'
-const FAILURE = 'authentication/success'
+const FAILURE = 'authentication/failure'
 
 // actions
-export const authSuccess = () => ({
+export const authenticationSuccess = () => ({
   type: SUCCESS,
 })
 
-export const authFail = () => ({
+export const authenticationFailure = () => ({
   type: FAILURE,
 })
 
@@ -18,7 +18,7 @@ const initialState = {
   isAuthenticated: false,
 }
 
-const authReducer = (state = initialState, action) => {
+const authenticationReducer = (state = initialState, action) => {
   switch (action.type) {
     case SUCCESS:
       return {
@@ -35,4 +35,4 @@ const authReducer = (state = initialState, action) => {
   }
 }
 
-export default authReducer
+export default authenticationReducer

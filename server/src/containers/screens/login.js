@@ -1,17 +1,19 @@
 // @flow
 
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
 
 import Login from '../../components/screens/login'
-import { authSuccess } from '../../redux/modules/auth'
+import AuthenticationUserStory from '../../redux/user-stories/authentication'
 
-const mapDispatchToProps = dispatch => ({
-  login: () => {
-    dispatch(authSuccess())
-    dispatch(push('/'))
-  },
-})
+const mapDispatchToProps = dispatch => {
+  const authentication = new AuthenticationUserStory(dispatch)
+  return {
+    actions: {
+      authentication,
+    },
+    dispatch,
+  }
+}
 
 const ConnectedLogin = connect(null, mapDispatchToProps)(Login)
 

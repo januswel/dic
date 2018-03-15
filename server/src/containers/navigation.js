@@ -1,25 +1,23 @@
 // @flow
 
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
 
 import Navigation from '../components/navigation'
-import { authSuccess, authFail } from '../redux/modules/auth'
+import AuthenticationUserStory from '../redux/user-stories/authentication'
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.authReducer.isAuthenticated,
+  isAuthenticated: state.authenticationReducer.isAuthenticated,
 })
 
-const mapDispatchToProps = dispatch => ({
-  login: () => {
-    dispatch(authSuccess())
-    dispatch(push('/'))
-  },
-  logout: () => {
-    dispatch(authFail())
-    dispatch(push('/login'))
-  },
-})
+const mapDispatchToProps = dispatch => {
+  const authentication = new AuthenticationUserStory(dispatch)
+  return {
+    actions: {
+      authentication,
+    },
+    dispatch,
+  }
+}
 
 const ConnectedNavigation = connect(mapStateToProps, mapDispatchToProps)(Navigation)
 

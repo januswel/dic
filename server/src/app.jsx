@@ -12,8 +12,6 @@ import Login from './containers/screens/login'
 import Home from './containers/screens/home'
 import AddDefinitions from './components/screens/add-definitions'
 
-console.log(store)
-
 export default () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
