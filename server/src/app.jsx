@@ -1,16 +1,27 @@
+// @flow
+
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Navigation from './components/navigation'
-import Home from './components/screens/home'
+import { Route, Switch } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'react-router-redux'
+import store, { history } from './redux/store'
+
+import PrivateRoute from './containers/private-route'
+import Navigation from './containers/navigation'
+import Login from './containers/screens/login'
+import Home from './containers/screens/home'
 import AddDefinitions from './components/screens/add-definitions'
 
 export default () => (
-  <Router>
-    <div>
-      <Navigation />
-
-      <Route exact path="/" component={Home} />
-      <Route path="/add" component={AddDefinitions} />
-    </div>
-  </Router>
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <div>
+        <Navigation />
+        <Switch>
+          <Route path="/login" component={Login} />
+          <PrivateRoute exact path="/" component={Home} />
+        </Switch>
+      </div>
+    </ConnectedRouter>
+  </Provider>
 )

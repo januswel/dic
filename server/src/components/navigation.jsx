@@ -1,6 +1,9 @@
-import React from 'react'
+// @flow
 
+import React from 'react'
 import { Link } from 'react-router-dom'
+
+import type AuthenticationUserStory from '../redux/user-stories/authentication'
 
 const styles = {
   link: {
@@ -8,7 +11,13 @@ const styles = {
   },
 }
 
-export default () => (
+type Props = {
+  actions: {
+    authentication: AuthenticationUserStory,
+  },
+}
+
+export default (props: Props) => (
   <nav>
     <Link style={styles.link} to="/">
       Home
@@ -16,5 +25,10 @@ export default () => (
     <Link style={styles.link} to="/add">
       Add definitions
     </Link>
+    {props.isAuthenticated ? (
+      <button onClick={() => props.actions.authentication.logout()}>Logout Here!</button>
+    ) : (
+      <button onClick={() => props.actions.authentication.login()}>Login Here!</button>
+    )}
   </nav>
 )

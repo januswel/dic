@@ -1,3 +1,16 @@
+// @flow
+
 import React from 'react'
 
-export default () => <h1>Home</h1>
+type Props = {
+  location: {
+    pathname: string,
+  },
+}
+
+export default (props: Props) => (
+  <div>
+    <h1>Home</h1>
+    <p>{`Private home is at: ${props.location.pathname}`}</p>
+  </div>
+)
