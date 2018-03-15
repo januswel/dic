@@ -7,27 +7,24 @@ type Props = {
   isAuthenticated: boolean,
   component: React.DOM,
 }
-type State = any
 
-export default class Routes extends React.Component<Props, State> {
-  render() {
-    const { isAuthenticated, component: Component, ...props } = this.props
+export default (props: Props) => {
+  const { isAuthenticated, component: Component, ...restProps } = props
 
-    const render = properties => {
-      if (isAuthenticated) {
-        return <Component {...properties} />
-      }
-
-      return (
-        <Redirect
-          to={{
-            pathname: '/login',
-            state: { from: properties.location },
-          }}
-        />
-      )
+  const render = properties => {
+    if (isAuthenticated) {
+      return <Component {...properties} />
     }
 
-    return <Route {...props} render={render} />
+    return (
+      <Redirect
+        to={{
+          pathname: '/login',
+          state: { from: properties.location },
+        }}
+      />
+    )
   }
+
+  return <Route {...restProps} render={render} />
 }
