@@ -1,23 +1,23 @@
 {
-    "presets": [
-        "es2015",
-        "flow"
-    ],
-    "env": {
-      "development": {
-        "presets": [
-          "power-assert"
+  "presets": [
+    "es2015",
+    "flow"
+  ],
+  "env": {
+    "development": {
+      "presets": [
+        "power-assert"
         ]
-      },
-      "production": {
-        "plugins": [
-          "unassert"
+    },
+    "production": {
+      "plugins": [
+        "unassert"
         ]
-      },
-      "test": {
-        "presets": [
-          "power-assert"
+    },
+    "test": {
+      "presets": [
+        "power-assert"
         ]
-      }
     }
+  }
 }
