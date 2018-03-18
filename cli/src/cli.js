@@ -1,36 +1,44 @@
 // @flow
 
-// TODO: use `commander` package
-import minimist from 'minimist'
+import cliParser from 'commander'
+
+import VERSION from './lib/version'
 import lookup from './'
 
 type Config = {
   target: string,
   service?: string,
-  needsToShowHelp?: boolean,
 }
 
-const generateHelp = () => 'Usage: dic <a word or a sentense to lookup>'
+const OPTIONS = [
+  {
+    SHORT: 's',
+    LONG: 'service',
+    TYPE: 'string',
+    DESCRIPTION: 'specify dictionary service',
+  },
+]
 
-const ARGUMENTS_TOP_INDEX = 2
 const RAW_ARGUMENT_INDEX = 0
 const processArguments = () => {
-  const parsed = minimist(process.argv.slice(ARGUMENTS_TOP_INDEX))
+  cliParser.version(VERSION)
+
+  OPTIONS.forEach(OPTION => {
+    const VALUE_TEMPLATE = OPTION.TYPE === 'string' ? ' [value]' : ''
+    cliParser.option(`-${OPTION.SHORT}, --${OPTION.LONG}${VALUE_TEMPLATE}`, OPTION.DESCRIPTION)
+  })
+
+  cliParser.parse(process.argv)
 
   const config: Config = {
-    target: parsed._[RAW_ARGUMENT_INDEX],
+    target: cliParser.args[RAW_ARGUMENT_INDEX],
   }
-
-  if (parsed.h || parsed.help) {
-    config.needsToShowHelp = true
-  }
-
   if (!config.target) {
     throw new Error('Specify a word or a sentense to lookup')
   }
 
-  if (parsed.service) {
-    config.service = parsed.service
+  if (cliParser.service) {
+    config.service = cliParser.service
   }
 
   return config
@@ -40,12 +48,6 @@ export default () => {
   try {
     const config = processArguments()
 
-    if (config.needsToShowHelp) {
-      // eslint-disable-next-line no-console
-      console.log(generateHelp())
-      return
-    }
-
     if (config.service) {
       lookup(config.target, config.service)
       return
@@ -54,6 +56,5 @@ export default () => {
     lookup(config.target)
   } catch (e) {
     console.error(e.message)
-    console.error(generateHelp())
   }
 }
