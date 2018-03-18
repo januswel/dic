@@ -8,9 +8,11 @@
   "bin": "./bin/dic",
   "scripts": {
     "build": "rm -rf dist && babel src --out-dir dist",
+    "lint": "cd ../ && eslint cli/src",
     "prepare": "yarn build",
     "start": "yarn build && ./bin/dic",
-    "test": "yarn unittest",
+    "test": "yarn type-check && yarn lint && yarn unittest",
+    "type-check": "cd ../ && yarn type-check",
     "unittest": "mocha --require babel-core/register $(find src -name '*.test.js')"
   },
   "keywords": [

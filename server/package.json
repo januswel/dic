@@ -7,7 +7,9 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack-dev-server --watch --mode development",
-    "test": "yarn unittest",
+    "lint": "cd ../ && eslint cli/src",
+    "test": "yarn type-check && yarn lint && yarn unittest",
+    "type-check": "cd ../ && yarn type-check",
     "unittest": "mocha --require babel-core/register $(find . -name '*.test.js')"
   },
   "private": true,
