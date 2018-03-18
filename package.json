@@ -8,7 +8,7 @@
     "test": "yarn type-check && yarn lint && yarn unittest",
     "unittest": "yarn unittest:cli && yarn unittest:server",
     "unittest:cli": "cd cli && yarn unittest",
-    "unittest:server": "cd server && source .envrc && yarn unittest",
+    "unittest:server": "cd server && yarn unittest",
     "type-check": "flow"
   },
   "devDependencies": {
