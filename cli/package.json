@@ -11,7 +11,7 @@
     "prepare": "yarn build",
     "start": "yarn build && ./bin/dic",
     "test": "yarn unittest",
-    "unittest": "mocha --require babel-core/register $(find . -name '*.test.js')"
+    "unittest": "mocha --require babel-core/register $(find src -name '*.test.js')"
   },
   "keywords": [
     "dictionary"
