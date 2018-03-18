@@ -2,6 +2,7 @@ env:
   browser: true
   es6: true
   node: true
+  mocha: true
 
 # recommended settings are listed in following URL
 # https://eslint.org/docs/rules/
@@ -61,7 +62,7 @@ rules:
   no-labels: error
   no-lone-blocks: error
   no-loop-func: error
-  no-magic-numbers: error
+  no-magic-numbers: [error, {enforceConst: true}]
   no-multi-spaces: error
   no-multi-str: error
   no-new: error
