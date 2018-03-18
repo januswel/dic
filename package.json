@@ -5,7 +5,10 @@
   "scripts": {
     "clean": "find . -name node_modules | xargs rm -rf",
     "lint": "eslint server/src cli/src",
-    "test": "yarn type-check && yarn lint",
+    "test": "yarn type-check && yarn lint && yarn unittest",
+    "unittest": "yarn unittest:cli && yarn unittest:server",
+    "unittest:cli": "cd cli && yarn unittest",
+    "unittest:server": "cd server && yarn unittest",
     "type-check": "flow"
   },
   "devDependencies": {
@@ -14,6 +17,7 @@
     "eslint-plugin-flowtype": "2.46.1",
     "eslint-plugin-react": "7.7.0",
     "flow-bin": "0.67.1",
+    "flow-typed": "2.4.0",
     "prettier": "1.11.1"
   },
   "workspaces": [
