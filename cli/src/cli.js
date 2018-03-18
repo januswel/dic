@@ -20,7 +20,7 @@ const OPTIONS = [
 ]
 
 const RAW_ARGUMENT_INDEX = 0
-const processArguments = () => {
+const parseArguments = () => {
   cliParser.version(VERSION)
 
   OPTIONS.forEach(OPTION => {
@@ -29,6 +29,10 @@ const processArguments = () => {
   })
 
   cliParser.parse(process.argv)
+}
+
+const buildConfiguration = () => {
+  parseArguments()
 
   const config: Config = {
     target: cliParser.args[RAW_ARGUMENT_INDEX],
@@ -46,7 +50,7 @@ const processArguments = () => {
 
 export default () => {
   try {
-    const config = processArguments()
+    const config = buildConfiguration()
 
     if (config.service) {
       lookup(config.target, config.service)
