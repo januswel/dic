@@ -1,7 +1,7 @@
 ---
 version: 2
 jobs:
-  build:
+  test:
     docker:
       - image: circleci/node:9.8
     working_directory: ~/repo
@@ -18,11 +18,25 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn test
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" >> ~/.npmrc
+      - run: cd cli && npm publish --access public
 workflows:
   version: 2
-  test:
+  test_and_deploy_cli:
     jobs:
-      - build:
+      - test:
           filters:
             branches:
               only: /.*/
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /release cli v[0-9]+(\.[0-9]+)*/
