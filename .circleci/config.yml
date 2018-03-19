@@ -19,8 +19,9 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn test
   deploy:
-    machine:
-      enabled: true
+    docker:
+      - image: circleci/node:9.8
+    working_directory: ~/repo
     steps:
       - checkout
       - restore_cache:
