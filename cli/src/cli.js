@@ -20,7 +20,7 @@ const OPTIONS = [
 ]
 
 const parseArguments = () => {
-  cliParser.version(VERSION)
+  cliParser.version(VERSION).arguments('<words>')
 
   OPTIONS.forEach(OPTION => {
     const VALUE_TEMPLATE = OPTION.TYPE === 'string' ? ' [value]' : ''
@@ -28,6 +28,7 @@ const parseArguments = () => {
   })
 
   cliParser.parse(process.argv)
+  console.log(cliParser)
 }
 
 const buildConfiguration = () => {
