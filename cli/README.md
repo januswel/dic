@@ -1,5 +1,7 @@
-dic-cli v0.0.6
+dic-cli v0.0.11
 ===
+
+[![CircleCI](https://circleci.com/gh/januswel/dic/tree/master.svg?style=svg)](https://circleci.com/gh/januswel/dic/tree/master)
 
 cli to lookup dictionary
 
@@ -8,6 +10,12 @@ Install
 
 ```sh
 npm install --global @januswel/dic
+```
+
+or
+
+```sh
+yarn global add @januswel/dic
 ```
 
 Usage
