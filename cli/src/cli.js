@@ -19,7 +19,6 @@ const OPTIONS = [
   },
 ]
 
-const RAW_ARGUMENT_INDEX = 0
 const parseArguments = () => {
   cliParser.version(VERSION)
 
@@ -35,7 +34,7 @@ const buildConfiguration = () => {
   parseArguments()
 
   const config: Config = {
-    target: cliParser.args[RAW_ARGUMENT_INDEX],
+    target: cliParser.args.join(' '),
   }
   if (!config.target) {
     throw new Error('Specify a word or a sentense to lookup')
