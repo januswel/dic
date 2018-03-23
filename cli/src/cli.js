@@ -28,7 +28,6 @@ const parseArguments = () => {
   })
 
   cliParser.parse(process.argv)
-  console.log(cliParser)
 }
 
 const buildConfiguration = () => {
