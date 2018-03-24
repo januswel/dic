@@ -8,6 +8,7 @@
     "build": "webpack --mode production",
     "dev": "webpack-dev-server --watch --mode development",
     "lint": "cd ../ && eslint cli/src",
+    "start": "webpack-dev-server --watch --mode production",
     "test": "yarn type-check && yarn lint && yarn unittest",
     "type-check": "cd ../ && yarn type-check",
     "unittest": "cd ../ && mocha --require babel-core/register $(find server/src -name '*.test.js')"
