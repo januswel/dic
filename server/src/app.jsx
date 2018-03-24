@@ -6,9 +6,7 @@ import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 import store, { history } from './redux/store'
 
-import PrivateRoute from './containers/private-route'
 import Navigation from './containers/navigation'
-import Login from './containers/screens/login'
 import Home from './containers/screens/home'
 import AddDefinitions from './components/screens/add-definitions'
 
@@ -18,8 +16,8 @@ export default () => (
       <div>
         <Navigation />
         <Switch>
-          <Route path="/login" component={Login} />
-          <PrivateRoute exact path="/" component={Home} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/add-definitions" component={AddDefinitions} />
         </Switch>
       </div>
     </ConnectedRouter>

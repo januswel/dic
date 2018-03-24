@@ -1,7 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 
-const ENV_KEYS = ['API_KEY', 'PROJECT_ID', 'MESSAGING_SENDER_ID', 'DATABASE_NAME']
+const ENV_KEYS = ['NODE_ENV', 'API_KEY', 'PROJECT_ID', 'MESSAGING_SENDER_ID', 'DATABASE_NAME']
 
 const generateEnv = keys => {
   const result = {}

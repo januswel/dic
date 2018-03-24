@@ -1,45 +1,53 @@
 // @flow
 
+import type { Account } from '../../lib/authentication'
+
 // types
-const SUCCESS = 'authentication/success'
-const FAILURE = 'authentication/failure'
+const SIGN_IN = 'authentication/sign-in'
+const SIGN_OUT = 'authentication/sign-out'
 
 // actions
-type AuthenticationSuccess = {
-  type: typeof SUCCESS,
+type SignInAction = {
+  type: typeof SIGN_IN,
+  payload: {
+    account: Account,
+  },
 }
-export const authenticationSuccess = () => ({
-  type: SUCCESS,
+export const signInAction = (account: Account) => ({
+  type: SIGN_IN,
+  payload: {
+    account,
+  },
 })
 
-type AuthenticationFailure = {
-  type: typeof FAILURE,
+type SignOutAction = {
+  type: typeof SIGN_OUT,
 }
-export const authenticationFailure = () => ({
-  type: FAILURE,
+export const signOutAction = () => ({
+  type: SIGN_OUT,
 })
 
-type Action = AuthenticationSuccess | AuthenticationFailure
+type Action = SignInAction | SignOutAction
 
 // reducer
 type State = {
-  isAuthenticated: boolean,
+  account: ?Account,
 }
 const initialState = {
-  isAuthenticated: false,
+  account: null,
 }
 
 const authenticationReducer = (state: State = initialState, action: Action) => {
   switch (action.type) {
-    case SUCCESS:
+    case SIGN_IN:
       return {
         ...state,
-        isAuthenticated: true,
+        account: action.payload.account,
       }
-    case FAILURE:
+    case SIGN_OUT:
       return {
         ...state,
-        isAuthenticated: false,
+        account: null,
       }
     default:
       return state
