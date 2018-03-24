@@ -20,6 +20,7 @@
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-3": "6.24.1",
     "node-env-file": "0.1.8",
+    "redux-logger": "3.0.6",
     "webpack": "4.1.1",
     "webpack-cli": "2.0.11",
     "webpack-dev-server": "3.1.1"

@@ -2,6 +2,7 @@
 
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
+import logger from 'redux-logger'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
 import createHistory from 'history/createBrowserHistory'
 
@@ -11,7 +12,7 @@ export const history = createHistory()
 
 const store = createStore(
   combineReducers({ routerReducer, authenticationReducer }),
-  applyMiddleware(routerMiddleware(history), thunk),
+  applyMiddleware(routerMiddleware(history), thunk, logger),
 )
 
 export default store
