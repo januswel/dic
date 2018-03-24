@@ -1,7 +1,5 @@
 // @flow
 
-import { push } from 'react-router-redux'
-
 import { signInAction, signOutAction } from '../modules/authentication'
 import { signIn, signOut, type Account } from '../../lib/authentication'
 
@@ -19,7 +17,6 @@ export default class AuthenticationUserStory {
       signIn()
         .then((account: Account) => {
           dispatch(signInAction(account))
-          dispatch(push('/'))
         })
         .catch(() => {
           // TODO
@@ -32,7 +29,6 @@ export default class AuthenticationUserStory {
       signOut()
         .then(() => {
           dispatch(signOutAction())
-          dispatch(push('/login'))
         })
         .catch(() => {
           // TODO

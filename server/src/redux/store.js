@@ -11,7 +11,10 @@ import { isEnvironmentWithDebug } from '../lib/environment'
 
 export const history = createHistory()
 
-const reducer = combineReducers({ routerReducer, authenticationReducer })
+const reducer = combineReducers({
+  router: routerReducer,
+  authentication: authenticationReducer,
+})
 
 const middlewares = [routerMiddleware(history), thunk]
 if (isEnvironmentWithDebug()) {

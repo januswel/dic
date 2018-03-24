@@ -12,6 +12,7 @@ const styles = {
 }
 
 type Props = {
+  isAuthenticated: boolean,
   actions: {
     authentication: AuthenticationUserStory,
   },

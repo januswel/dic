@@ -31,11 +31,10 @@ type Action = SignInAction | SignOutAction
 
 // reducer
 type State = {
-  isAuthenticated: boolean,
-  account?: Account,
+  account: ?Account,
 }
 const initialState = {
-  isAuthenticated: false,
+  account: null,
 }
 
 const authenticationReducer = (state: State = initialState, action: Action) => {
@@ -43,13 +42,11 @@ const authenticationReducer = (state: State = initialState, action: Action) => {
     case SIGN_IN:
       return {
         ...state,
-        isAuthenticated: true,
         account: action.payload.account,
       }
     case SIGN_OUT:
       return {
         ...state,
-        isAuthenticated: false,
         account: null,
       }
     default:
