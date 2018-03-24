@@ -26,9 +26,9 @@ export default (props: Props) => (
       Add definitions
     </Link>
     {props.isAuthenticated ? (
-      <button onClick={() => props.actions.authentication.logout()}>Logout Here!</button>
+      <button onClick={() => props.actions.authentication.logout()}>Logout</button>
     ) : (
-      <button onClick={() => props.actions.authentication.login()}>Login Here!</button>
+      <button onClick={() => props.actions.authentication.login()}>Login</button>
     )}
   </nav>
 )
