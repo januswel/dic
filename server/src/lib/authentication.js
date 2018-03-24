@@ -13,7 +13,7 @@ export type Account = {
   iconUrl: IconUrl,
 }
 
-export default () => {
+export const signIn = (): Promise<Account> => {
   const provider = new firebase.auth.GoogleAuthProvider()
 
   return firebase
@@ -25,7 +25,6 @@ export default () => {
       email: result.user.email,
       iconUrl: result.user.photoURL,
     }))
-    .catch(error => {
-      throw new Error(`${error.code}: ${error.message}`)
-    })
 }
+
+export const signOut = (): Promise<void> => firebase.auth().signOut()

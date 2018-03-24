@@ -2,8 +2,8 @@
 
 import { push } from 'react-router-redux'
 
-import { authenticationSuccess, authenticationFailure } from '../modules/authentication'
-import authenticate, { type Account } from '../../lib/authentication'
+import { signInAction, signOutAction } from '../modules/authentication'
+import { signIn, signOut, type Account } from '../../lib/authentication'
 
 import type { Dispatch } from 'redux'
 
@@ -16,15 +16,27 @@ export default class AuthenticationUserStory {
 
   login() {
     this.dispatch((dispatch: Dispatch) => {
-      authenticate().then((account: Account) => {
-        dispatch(authenticationSuccess(account))
-        dispatch(push('/'))
-      })
+      signIn()
+        .then((account: Account) => {
+          dispatch(signInAction(account))
+          dispatch(push('/'))
+        })
+        .catch(() => {
+          // TODO
+        })
     })
   }
 
   logout() {
-    this.dispatch(authenticationFailure())
-    this.dispatch(push('/login'))
+    this.dispatch((dispatch: Dispatch) => {
+      signOut()
+        .then(() => {
+          dispatch(signOutAction())
+          dispatch(push('/login'))
+        })
+        .catch(() => {
+          // TODO
+        })
+    })
   }
 }
