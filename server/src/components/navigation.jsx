@@ -29,7 +29,10 @@ export default (props: Props) => (
     {props.isAuthenticated ? (
       <button onClick={() => props.actions.authentication.logout()}>Logout</button>
     ) : (
-      <button onClick={() => props.actions.authentication.login()}>Login</button>
+      <div>
+        <button onClick={() => props.actions.authentication.login('google')}>Google Login</button>
+        <button onClick={() => props.actions.authentication.login('twitter')}>Twitter Login</button>
+      </div>
     )}
   </nav>
 )

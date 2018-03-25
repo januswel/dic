@@ -12,6 +12,6 @@ type Props = {
 export default (props: Props) => (
   <div>
     <h1>Home</h1>
-    {props.isAuthenticated ? <p>{props.account.email}</p> : null}
+    {props.isAuthenticated ? <p>{props.account.contact}</p> : null}
   </div>
 )
