@@ -6,8 +6,18 @@ import { type Account } from '../lib/authentication'
 
 const styles = {
   container: {
+    display: 'inline-flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 8,
-    margin: 8,
+  },
+  image: {
+    height: 24,
+    width: 24,
+  },
+  contact: {
+    marginLeft: 8,
+    fontSize: 16,
   },
 }
 
@@ -15,9 +25,11 @@ type Props = {
   account: Account,
 }
 
-export default (props: Props) => (
-  <div style={styles.container}>
-    <img src={props.account.iconUrl} />
-    <p>{props.account.contact}</p>
-  </div>
+const Profile = (props: Props) => (
+  <span style={styles.container}>
+    <img src={props.account.iconUrl} style={styles.image} />
+    <span style={styles.contact}>{props.account.contact}</span>
+  </span>
 )
+
+export default Profile
