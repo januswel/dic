@@ -1,9 +1,9 @@
 // @flow
 
-import { signInAction, signOutAction } from '../modules/authentication'
-import { signIn, signOut, type Account } from '../../lib/authentication'
-
 import type { Dispatch } from 'redux'
+
+import { signInAction, signOutAction } from '../modules/authentication'
+import { signIn, signOut, type Account, type OauthProviderName } from '../../lib/authentication'
 
 export default class AuthenticationUserStory {
   dispatch: Dispatch
@@ -12,9 +12,9 @@ export default class AuthenticationUserStory {
     this.dispatch = dispatch
   }
 
-  login() {
+  login(oauthProviderName: OauthProviderName) {
     this.dispatch((dispatch: Dispatch) => {
-      signIn()
+      signIn(oauthProviderName)
         .then((account: Account) => {
           dispatch(signInAction(account))
         })
