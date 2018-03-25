@@ -2,6 +2,10 @@
 
 import { createSelector } from 'reselect'
 
-const getAccount = state => state.authentication.account
+import type { AuthenticationState } from '../../redux/modules/authentication'
+type State = {
+  authentication: AuthenticationState,
+}
 
+export const getAccount = (state: State) => state.authentication.account
 export const isAuthenticatedSelector = createSelector([getAccount], account => account !== null)

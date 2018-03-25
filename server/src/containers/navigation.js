@@ -4,10 +4,11 @@ import { connect } from 'react-redux'
 
 import Navigation from '../components/navigation'
 import AuthenticationUserStory from '../redux/user-stories/authentication'
-import { isAuthenticatedSelector } from './selectors/authentication.js'
+import { getAccount, isAuthenticatedSelector } from './selectors/authentication.js'
 
 const mapStateToProps = state => ({
   isAuthenticated: isAuthenticatedSelector(state),
+  account: getAccount(state),
 })
 
 const mapDispatchToProps = dispatch => ({

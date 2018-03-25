@@ -30,14 +30,14 @@ export const signOutAction = () => ({
 type Action = SignInAction | SignOutAction
 
 // reducer
-type State = {
+export type AuthenticationState = {
   account: ?Account,
 }
 const initialState = {
   account: null,
 }
 
-const authenticationReducer = (state: State = initialState, action: Action) => {
+const authenticationReducer = (state: AuthenticationState = initialState, action: Action) => {
   switch (action.type) {
     case SIGN_IN:
       return {

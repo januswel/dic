@@ -3,7 +3,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import Profile from './profile'
+
 import type AuthenticationUserStory from '../redux/user-stories/authentication'
+import { type Account } from '../lib/authentication'
 
 const styles = {
   link: {
@@ -13,6 +16,7 @@ const styles = {
 
 type Props = {
   isAuthenticated: boolean,
+  account: Account,
   actions: {
     authentication: AuthenticationUserStory,
   },
@@ -27,7 +31,10 @@ export default (props: Props) => (
       Add definitions
     </Link>
     {props.isAuthenticated ? (
-      <button onClick={() => props.actions.authentication.logout()}>Logout</button>
+      <div>
+        <button onClick={() => props.actions.authentication.logout()}>Logout</button>
+        <Profile account={props.account} />
+      </div>
     ) : (
       <div>
         <button onClick={() => props.actions.authentication.login('google')}>Google Login</button>
