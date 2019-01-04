@@ -1,5 +1,3 @@
-// @flow
-
 import fetch from 'node-fetch'
 
 export default async (url: string) => {

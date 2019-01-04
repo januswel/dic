@@ -1,7 +1,3 @@
-// @assert
-
-import assert from 'assert'
-
 import getHead from './get-head'
 
 describe('getHead', () => {
@@ -13,7 +9,6 @@ describe('getHead', () => {
     const expected = [0, 1]
     /* eslint-enable no-magic-numbers */
 
-    const actual = getHead(items, NUMOF_HEAD)
-    assert.deepEqual(expected, actual)
+    expect(getHead(items, NUMOF_HEAD)).toEqual(expected)
   })
 })

@@ -1,13 +1,11 @@
-// @flow
-
-import cliParser from 'commander'
+import commander from 'commander'
 
 import VERSION from './lib/version'
 import lookup from './'
 
 type Config = {
-  target: string,
-  service?: string,
+  target: string
+  service?: string
 }
 
 const OPTIONS = [
@@ -20,28 +18,28 @@ const OPTIONS = [
 ]
 
 const parseArguments = () => {
-  cliParser.version(VERSION).arguments('<words>')
+  commander.version(VERSION).arguments('<words>')
 
   OPTIONS.forEach(OPTION => {
     const VALUE_TEMPLATE = OPTION.TYPE === 'string' ? ' [value]' : ''
-    cliParser.option(`-${OPTION.SHORT}, --${OPTION.LONG}${VALUE_TEMPLATE}`, OPTION.DESCRIPTION)
+    commander.option(`-${OPTION.SHORT}, --${OPTION.LONG}${VALUE_TEMPLATE}`, OPTION.DESCRIPTION)
   })
 
-  cliParser.parse(process.argv)
+  commander.parse(process.argv)
 }
 
 const buildConfiguration = () => {
   parseArguments()
 
   const config: Config = {
-    target: cliParser.args.join(' '),
+    target: commander.args.join(' '),
   }
   if (!config.target) {
     throw new Error('Specify a word or a sentense to lookup')
   }
 
-  if (cliParser.service) {
-    config.service = cliParser.service
+  if (commander.service) {
+    config.service = commander.service
   }
 
   return config

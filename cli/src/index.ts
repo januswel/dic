@@ -1,4 +1,3 @@
-// @flow
 /* eslint no-console: off */
 
 import DEFAULTS from './defaults'
