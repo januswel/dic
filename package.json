@@ -3,15 +3,19 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "clean": "find . -name node_modules | xargs rm -rf"
+    "build": "yarn workspaces run build",
+    "clean": "find . -name node_modules | xargs rm -rf",
+    "lint": "eslint **/*.ts **/*.tsx",
+    "test": "yarn lint && yarn build && yarn unittest",
+    "unittest": "yarn workspaces run test"
   },
   "devDependencies": {
-    "eslint": "4.18.2",
+    "eslint": "5.12.0",
     "eslint-plugin-jest": "22.1.2",
-    "eslint-plugin-react": "7.7.0",
+    "eslint-plugin-react": "7.12.3",
     "eslint-plugin-typescript": "0.14.0",
     "jest": "23.6.0",
-    "prettier": "1.11.1",
+    "prettier": "1.15.3",
     "ts-jest": "23.10.5",
     "typescript": "3.2.2",
     "typescript-eslint-parser": "21.0.2"

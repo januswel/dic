@@ -1,6 +1,11 @@
 ---
-# .prettierrc
+# https://prettier.io/docs/en/options.html
 
+# specify correct parser
+parser: typescript
+filepath: ''
+
+# main settings
 printWidth: 120
 tabWidth: 2
 useTabs: false
@@ -10,6 +15,21 @@ trailingComma: all
 bracketSpacing: true
 jsxBracketSameLine: false
 arrowParens: avoid
-rangeStart: 0
-rangeEnd: Infinity
-parser: typescript
+endOfLine: lf
+
+# process always
+requirePragma: false
+insertPragma: false
+
+# for Markdown
+# proseWrap: preserve
+# for HTML
+# htmlWhitespaceSensitivity: css
+
+overrides:
+  - files: '*.json'
+    options:
+      parser: json
+  - files: '*.html'
+    options:
+      parser: html
