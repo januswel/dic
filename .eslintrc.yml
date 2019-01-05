@@ -5,23 +5,26 @@ env:
   browser: true
   es6: true
   node: true
-  mocha: true
+  jest/globals: true
 
 # recommended settings are listed in following URL
 # https://eslint.org/docs/rules/
 extends: eslint:recommended
 
-parser: babel-eslint
+parser: typescript-eslint-parser
 
 parserOptions:
+  jsx: true,
+  useJSXTextNode: true
   ecmaFeatures:
     experimentalObjectRestSpread: true
     jsx: true
   sourceType: module
 
 plugins:
-  - flowtype
+  - typescript
   - react
+  - jest
 
 rules:
   # Stylistic Issues are processed by prettier
@@ -177,12 +180,10 @@ rules:
   sort-imports: off
   symbol-description: error
 
-  # flowtype
-  # https://github.com/gajus/eslint-plugin-flowtype
-  flowtype/define-flow-type: error
-  flowtype/use-flow-type: error
+  # TypeScript
+  typescript/no-unused-vars: error
 
   # React.js
-  # https://github.com/gajus/eslint-plugin-flowtype
+  # https://github.com/gajus/eslint-plugin-react
   react/jsx-uses-vars: error
   react/jsx-uses-react: error

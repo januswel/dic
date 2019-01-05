@@ -12,4 +12,4 @@ jsxBracketSameLine: false
 arrowParens: avoid
 rangeStart: 0
 rangeEnd: Infinity
-parser: flow
+parser: typescript

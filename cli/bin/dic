@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-var cli = require('../dist/cli').default
+var cli = require('../dist/src/cli').default
 
 cli()
