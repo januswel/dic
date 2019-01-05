@@ -26,7 +26,7 @@
   "dependencies": {
     "cheerio": "1.0.0-rc.2",
     "commander": "2.19.0",
-    "node-fetch": "2.1.1"
+    "node-fetch": "2.3.0"
   },
   "devDependencies": {
     "@types/cheerio": "0.22.10",
