@@ -9,6 +9,7 @@
   "scripts": {
     "build": "tsc",
     "prebuild": "rm -rf dist",
+    "prepare": "yarn build",
     "start": "yarn build && ./bin/dic",
     "test": "jest"
   },

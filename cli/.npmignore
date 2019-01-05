@@ -1,8 +1,5 @@
-.git
-.babelrc
-.flowconfig
 .gitignore
-.node-version
-.prettierrc
 .yangpao.toml
+jest.config.js
 node_modules
+release.sh
