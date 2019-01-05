@@ -1,6 +1,4 @@
-// @flow
-
-import type { Account } from '../../lib/authentication'
+import { Account } from '../../lib/authentication'
 
 // types
 const SIGN_IN = 'authentication/sign-in'
@@ -8,10 +6,10 @@ const SIGN_OUT = 'authentication/sign-out'
 
 // actions
 type SignInAction = {
-  type: typeof SIGN_IN,
+  type: typeof SIGN_IN
   payload: {
-    account: Account,
-  },
+    account: Account
+  }
 }
 export const signInAction = (account: Account) => ({
   type: SIGN_IN,
@@ -21,7 +19,7 @@ export const signInAction = (account: Account) => ({
 })
 
 type SignOutAction = {
-  type: typeof SIGN_OUT,
+  type: typeof SIGN_OUT
 }
 export const signOutAction = () => ({
   type: SIGN_OUT,
@@ -31,7 +29,7 @@ type Action = SignInAction | SignOutAction
 
 // reducer
 type State = {
-  account: ?Account,
+  account: Account | null
 }
 const initialState = {
   account: null,

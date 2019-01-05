@@ -13,7 +13,7 @@ const generateEnv = keys => {
 
 module.exports = {
   entry: {
-    index: [path.resolve(__dirname, 'src/index.js')],
+    index: [path.resolve(__dirname, 'src/index.ts')],
   },
   output: {
     filename: 'bundle.js',
@@ -23,16 +23,18 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        use: 'babel-loader',
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        use: 'ts-loader',
       },
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js'],
   },
   plugins: [
     new webpack.DefinePlugin({

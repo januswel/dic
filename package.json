@@ -3,26 +3,18 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "clean": "find . -name node_modules | xargs rm -rf",
-    "lint": "eslint server/src cli/src",
-    "test": "yarn type-check && yarn lint && yarn unittest",
-    "unittest": "yarn unittest:cli && yarn unittest:server",
-    "unittest:cli": "cd cli && yarn unittest",
-    "unittest:server": "cd server && yarn unittest",
-    "type-check": "flow"
+    "clean": "find . -name node_modules | xargs rm -rf"
   },
   "devDependencies": {
-    "babel-eslint": "8.2.2",
-    "babel-plugin-unassert": "2.1.2",
-    "babel-preset-power-assert": "2.0.0",
     "eslint": "4.18.2",
-    "eslint-plugin-flowtype": "2.46.1",
+    "eslint-plugin-jest": "22.1.2",
     "eslint-plugin-react": "7.7.0",
-    "mocha": "5.0.4",
-    "power-assert": "1.4.4",
+    "eslint-plugin-typescript": "0.14.0",
+    "jest": "23.6.0",
     "prettier": "1.11.1",
+    "ts-jest": "23.10.5",
     "typescript": "3.2.2",
-    "unassert": "1.5.1"
+    "typescript-eslint-parser": "21.0.2"
   },
   "workspaces": [
     "cli",

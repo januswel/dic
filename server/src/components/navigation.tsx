@@ -1,9 +1,7 @@
-// @flow
-
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import type AuthenticationUserStory from '../redux/user-stories/authentication'
+import AuthenticationUserStory from '../redux/user-stories/authentication'
 
 const styles = {
   link: {
@@ -11,11 +9,11 @@ const styles = {
   },
 }
 
-type Props = {
-  isAuthenticated: boolean,
+export interface Props {
+  isAuthenticated: boolean
   actions: {
-    authentication: AuthenticationUserStory,
-  },
+    authentication: AuthenticationUserStory
+  }
 }
 
 export default (props: Props) => (

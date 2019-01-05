@@ -1,10 +1,8 @@
-// @flow
-
 import { connect } from 'react-redux'
 
 import PrivateRoute from '../private-route'
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: any /* TODO: specify correct type */) => ({
   isAuthenticated: state.authenticationReducer.isAuthenticated,
 })
 

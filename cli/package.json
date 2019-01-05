@@ -9,7 +9,6 @@
   "scripts": {
     "build": "tsc",
     "prebuild": "rm -rf dist",
-    "prepare": "yarn build",
     "start": "yarn build && ./bin/dic",
     "test": "jest"
   },
@@ -35,10 +34,6 @@
     "@types/jest": "23.3.11",
     "@types/node-fetch": "2.1.4",
     "babel-cli": "6.26.0",
-    "babel-preset-es2015": "6.24.1",
-    "eslint-plugin-jest": "22.1.2",
-    "jest": "23.6.0",
-    "ts-jest": "23.10.5",
-    "typescript-eslint-parser": "21.0.2"
+    "babel-preset-es2015": "6.24.1"
   }
 }

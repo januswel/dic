@@ -1,17 +1,15 @@
-// @flow
-
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 
-type Props = {
-  isAuthenticated: boolean,
-  component: React.DOM,
+export interface Props {
+  isAuthenticated: boolean
+  component: any // TODO: specify correct type
 }
 
 export default (props: Props) => {
   const { isAuthenticated, component: Component, ...restProps } = props
 
-  const render = properties => {
+  const render = (properties: any /* TODO: specify correct type */) => {
     if (isAuthenticated) {
       return <Component {...properties} />
     }

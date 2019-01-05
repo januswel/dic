@@ -1,5 +1,3 @@
-// @flow
-
 import firebase from './firebase'
 
 type ProviderId = string
@@ -9,50 +7,52 @@ type Id = string
 type Email = string
 type TwitterScreenName = string
 type IconUrl = string
-export type Account = {
-  id: Id,
-  providerId: ProviderId,
-  accessToken: AccessToken,
-  secret?: Secret,
-  contact: Email | TwitterScreenName,
-  iconUrl: IconUrl,
+export interface Account {
+  id: Id
+  providerId: ProviderId
+  accessToken: AccessToken
+  secret?: Secret
+  contact: Email | TwitterScreenName
+  iconUrl: IconUrl
 }
 
 export type OauthProviderName = 'google' | 'twitter'
-type GoogleAdditionalUserInfo = {
+interface GoogleAdditionalUserInfo {
   profile: {
-    id: Id,
-  },
+    id: Id
+  }
 }
-type TwitterAdditionalUserInfo = {
+interface TwitterAdditionalUserInfo {
   profile: {
-    id: Id,
-    screen_name: TwitterScreenName,
-  },
+    id: Id
+    screen_name: TwitterScreenName
+  }
 }
-type GoogleUser = {
-  email: Email,
-  photoURL: IconUrl,
+interface GoogleUser {
+  email: Email
+  photoURL: IconUrl
 }
-type TwitterUser = {
-  photoURL: IconUrl,
+interface TwitterUser {
+  photoURL: IconUrl
 }
-type ResponseTemplate<AdditionalUserInfo, User> = {
-  additionalUserInfo: AdditionalUserInfo,
+interface ResponseTemplate<AdditionalUserInfo, User> {
+  additionalUserInfo: AdditionalUserInfo
   credential: {
-    providerId: ProviderId,
-    accessToken: AccessToken,
-    secret?: Secret,
-  },
-  user: User,
+    providerId: ProviderId
+    accessToken: AccessToken
+    secret?: Secret
+  }
+  user: User
 }
 type GoogleAuthenticationResponse = ResponseTemplate<GoogleAdditionalUserInfo, GoogleUser>
 type TwitterAuthenticationResponse = ResponseTemplate<TwitterAdditionalUserInfo, TwitterUser>
-type OauthProvider = {
-  [name: OauthProviderName]: {
-    proxy: firebase.auth.GoogleAuthProvider | firebase.auth.TwitterAuthProvider,
-    mapper: (GoogleAuthenticationResponse => Account) | (TwitterAuthenticationResponse => Account),
-  },
+interface OauthProvider {
+  //TODO: [name: OauthProviderName]: {
+  [name: string]: {
+    proxy: firebase.auth.GoogleAuthProvider | firebase.auth.TwitterAuthProvider
+    mapper: any
+    //TODO: mapper: (GoogleAuthenticationResponse => Account) | (TwitterAuthenticationResponse => Account)
+  }
 }
 const oauthProvider: OauthProvider = {
   google: {

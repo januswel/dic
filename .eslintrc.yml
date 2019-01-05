@@ -14,12 +14,15 @@ extends: eslint:recommended
 parser: typescript-eslint-parser
 
 parserOptions:
+  jsx: true,
+  useJSXTextNode: true
   ecmaFeatures:
     experimentalObjectRestSpread: true
     jsx: true
   sourceType: module
 
 plugins:
+  - typescript
   - react
   - jest
 
@@ -176,6 +179,9 @@ rules:
   require-yield: error
   sort-imports: off
   symbol-description: error
+
+  # TypeScript
+  typescript/no-unused-vars: error
 
   # React.js
   # https://github.com/gajus/eslint-plugin-react

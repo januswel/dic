@@ -1,11 +1,9 @@
-// @flow
-
 import { connect } from 'react-redux'
 
 import Home from '../../components/screens/home'
-import { isAuthenticatedSelector } from '../selectors/authentication.js'
+import { isAuthenticatedSelector } from '../selectors/authentication'
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: any /* TODO: specify correct type */) => ({
   account: state.authentication.account,
   isAuthenticated: isAuthenticatedSelector(state),
 })

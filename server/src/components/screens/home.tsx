@@ -1,12 +1,10 @@
-// @flow
-
 import React from 'react'
 
-import { type Account } from '../../lib/authentication'
+import { Account } from '../../lib/authentication'
 
 type Props = {
-  account: Account,
-  isAuthenticated: boolean,
+  account: Account
+  isAuthenticated: boolean
 }
 
 export default (props: Props) => (

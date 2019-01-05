@@ -1,5 +1,3 @@
-// @flow
-
 import * as firebase from 'firebase'
 import invariant from 'invariant'
 
