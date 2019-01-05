@@ -1,4 +1,4 @@
-dic-cli v0.0.14
+dic-cli v0.0.15
 ===
 
 [![CircleCI](https://circleci.com/gh/januswel/dic/tree/master.svg?style=svg)](https://circleci.com/gh/januswel/dic/tree/master)
