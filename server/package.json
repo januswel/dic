@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
+    "prebuild": "rm -rf dist",
     "dev": "webpack-dev-server --watch --mode development",
     "start": "webpack-dev-server --watch --mode production",
     "test": "jest"

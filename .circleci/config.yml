@@ -17,12 +17,7 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run:
-          command: |
-            cd cli
-            yarn test
-            cd ../server
-            yarn test
+      - run: yarn test
   deploy:
     docker:
       - image: circleci/node:10.15
